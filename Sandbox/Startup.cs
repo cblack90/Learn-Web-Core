@@ -33,6 +33,9 @@ namespace Sandbox
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+
+            services.AddDbContext<SandboxContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SandboxContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
