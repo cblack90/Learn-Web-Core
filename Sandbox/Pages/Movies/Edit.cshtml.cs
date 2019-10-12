@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Sandbox.Data;
 using Sandbox.Models;
 
-namespace Sandbox.Pages.Models
+namespace Sandbox.Pages.Movies
 {
     public class EditModel : PageModel
     {

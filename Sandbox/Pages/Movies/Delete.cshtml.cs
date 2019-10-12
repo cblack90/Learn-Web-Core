@@ -8,17 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using Sandbox.Data;
 using Sandbox.Models;
 
-namespace Sandbox.Pages.Models
+namespace Sandbox.Pages.Movies
 {
-    public class DetailsModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly Sandbox.Data.SandboxContext _context;
 
-        public DetailsModel(Sandbox.Data.SandboxContext context)
+        public DeleteModel(Sandbox.Data.SandboxContext context)
         {
             _context = context;
         }
 
+        [BindProperty]
         public Movie Movie { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -35,6 +36,24 @@ namespace Sandbox.Pages.Models
                 return NotFound();
             }
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Movie = await _context.Movie.FindAsync(id);
+
+            if (Movie != null)
+            {
+                _context.Movie.Remove(Movie);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index");
         }
     }
 }
