@@ -131,10 +131,14 @@ C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\bin\Debug\netcoreapp3.0\r
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\bin\Debug\netcoreapp3.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\bin\Debug\netcoreapp3.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\bin\Debug\netcoreapp3.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Sandbox.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Sandbox.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Pages\Movies\Create.cshtml.g.cs
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Pages\Movies\Delete.cshtml.g.cs
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Pages\Movies\Details.cshtml.g.cs
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Pages\Movies\Edit.cshtml.g.cs
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Pages\Movies\Index.cshtml.g.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\bin\Debug\netcoreapp3.0\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\bin\Debug\netcoreapp3.0\Microsoft.Azure.Storage.Blob.dll
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\bin\Debug\netcoreapp3.0\Microsoft.Azure.Storage.Common.dll
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Sandbox.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Sandbox.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Pages\Video\Streaming.cshtml.g.cs

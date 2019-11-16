@@ -1,0 +1,17 @@
+﻿@page
+@model Sandbox.Pages.Movies.StreamingModel
+@{
+    ViewData["Title"] = "Streaming";
+}
+
+<h1>Streaming</h1>
+
+<h2>Below this text should be the video</h2>
+
+<video id="vid1" class="azuremediaplayer amp-default-skin" autoplay controls width="640" height="400" poster="poster.jpg" data-setup='{"techOrder": ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"], "nativeControlsForTouch": false}'>
+    <source src="http://learningmediaservices-uswc2.streaming.media.azure.net/aa285dd4-d315-4278-81b1-6fb26225a4d7/Escalate.ism/manifest" type="application/vnd.ms-sstr+xml" />
+    <p class="amp-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+    </p>
+</video>
+
