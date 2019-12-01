@@ -142,3 +142,4 @@ C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\bin\Debug\netcoreapp3.0\M
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Sandbox.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Sandbox.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Pages\Video\Streaming.cshtml.g.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Views\Account\Register.cshtml.g.cs
