@@ -142,3 +142,10 @@ C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\bin\Debug\netcoreapp3.0\M
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Sandbox.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Sandbox.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Pages\Video\Streaming.cshtml.g.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Chris\Documents\GitHub\Learn Web Core\Sandbox\obj\Debug\netcoreapp3.0\Razor\Pages\Shared\_CookieConsentPartial.cshtml.g.cs
