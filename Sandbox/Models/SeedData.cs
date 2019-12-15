@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Sandbox.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Sandbox.Data;
 using System;
@@ -8,19 +10,75 @@ using System.Threading.Tasks;
 
 namespace Sandbox.Models
 {
-    public class SeedData
+    public static class SeedData
     {
-        public static void Initialize(IServiceProvider serviceProvider)
+        public static async Task Initialize(IServiceProvider serviceProvider, string testUserPW)
         {
             using (var context = new SandboxContext(serviceProvider.GetRequiredService<DbContextOptions<SandboxContext>>()))
             {
-                //Look for any movies
-                if (context.Movie.Any())
-                {
-                    return; //DB has been seeded
-                }
+               
+                var adminID = await EnsureUser(serviceProvider, testUserPW, "admin@fullcirclevisuals.com");
+                await EnsureRole(serviceProvider, adminID, Constants.AdministratorRole);
 
-                context.Movie.AddRange
+                var managerID = await EnsureUser(serviceProvider, testUserPW, "manager@fullcirclevisuals.com");
+                await EnsureRole(serviceProvider, managerID, Constants.ManagerRole);
+
+                
+
+                SeedDB(context, adminID);
+            }
+        }//end of seed data
+        private static async Task<string> EnsureUser(IServiceProvider serviceProvider, string testUserPW, string UserName)
+        {
+            var userManager = serviceProvider.GetService<UserManager<IdentityUser>>();
+
+            var user = await userManager.FindByNameAsync(UserName);
+            if (user == null)
+            {
+                user = new IdentityUser
+                {
+                    UserName = UserName,
+                    EmailConfirmed = true
+                };
+                await userManager.CreateAsync(user, testUserPW);
+            }
+            if(user == null)
+            {
+                throw new Exception("The password is probably not strong enough!");
+            }
+            return user.Id;
+        }//end of EnsureUser
+        private static async Task<IdentityResult> EnsureRole(IServiceProvider serviceProvider, string uid, string role)
+        {
+            IdentityResult IR = null;
+            var roleManager = serviceProvider.GetService<RoleManager<IdentityRole>>();
+
+            if(roleManager == null)
+            {
+                throw new Exception("roleManger null");
+            }
+            if (!await roleManager.RoleExistsAsync(role))
+            {
+                IR = await roleManager.CreateAsync(new IdentityRole(role));
+            }
+            var userManager = serviceProvider.GetService<UserManager<IdentityUser>>();
+            var user = await userManager.FindByIdAsync(uid);
+
+            if(user == null)
+            {
+                throw new Exception("The testUserPW password was prbably not strong enough!");
+            }
+            IR = await userManager.AddToRoleAsync(user, role);
+            return IR;
+        }
+        public static void SeedDB(SandboxContext context, string adminID)
+        {
+            //Look for any movies
+            if (context.Movie.Any())
+            {
+                return; //DB has been seeded
+            }
+            context.Movie.AddRange
                     (
                     new Movie
                     {
@@ -55,8 +113,7 @@ namespace Sandbox.Models
                         Rating = "R"
                     }
                     );
-                context.SaveChanges();
-            }
+            context.SaveChanges();
         }
-    }
+    }//end of class
 }

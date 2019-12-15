@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Sandbox.Data;
 using Sandbox.Models;
 
 namespace Sandbox
@@ -22,12 +24,19 @@ namespace Sandbox
                 var services = scope.ServiceProvider;
                 try
                 {
-                    SeedData.Initialize(services);
+                    var context = services.GetRequiredService<SandboxContext>();
+                    context.Database.Migrate();
+
+                    var config = host.Services.GetRequiredService<IConfiguration>();
+
+                    var testUserPW = config["SeedUserPW"];
+
+                    SeedData.Initialize(services, testUserPW).Wait();
                 }
                 catch(Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred seeding the DM.");
+                    logger.LogError(ex, "An error occurred seeding the DB.");
                 }
             }
             host.Run();
