@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Sandbox.Data;
+using Sandbox.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -83,6 +84,7 @@ namespace Sandbox
                     options.UseSqlServer(Configuration.GetConnectionString("SandboxContext")));
         }
 
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -110,6 +112,9 @@ namespace Sandbox
             {
                 endpoints.MapRazorPages();
             });
-        }
+            
+        }//end of configure services
+
+       
     }
 }

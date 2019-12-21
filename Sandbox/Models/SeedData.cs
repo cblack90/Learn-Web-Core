@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace Sandbox.Models
 {
@@ -70,7 +71,28 @@ namespace Sandbox.Models
             }
             IR = await userManager.AddToRoleAsync(user, role);
             return IR;
+        }//end Ensure Role
+
+        public static async Task CreateRoles(IServiceProvider serviceProvider, IConfiguration configuration)
+        {
+            //add custom roles
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            //var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            string[] roleNames = { "Administreators", "Mamagers", "Clients" };
+            IdentityResult roleResult;
+
+            foreach (var role in roleNames)
+            {
+                //creating the roles and seeding them to the database
+                var roleExist = await RoleManager.RoleExistsAsync(role);
+                if (!roleExist)
+                {
+                    roleResult = await RoleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
+
         }
+
         public static void SeedDB(SandboxContext context, string adminID)
         {
             //Look for any movies

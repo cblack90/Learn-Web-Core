@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +33,10 @@ namespace Sandbox
                     var testUserPW = config["SeedUserPW"];
 
                     SeedData.Initialize(services, testUserPW).Wait();
+
+                    var serviceProvider = services.GetRequiredService<IServiceProvider>();
+                    var configuration = services.GetRequiredService<IConfiguration>();
+                    SeedData.CreateRoles(serviceProvider, configuration).Wait();
                 }
                 catch(Exception ex)
                 {

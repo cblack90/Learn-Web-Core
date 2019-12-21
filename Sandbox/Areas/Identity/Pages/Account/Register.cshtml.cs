@@ -80,6 +80,9 @@ namespace Sandbox.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
+                    //Add a user to the default role, or any role you prefer here
+                    await _userManager.AddToRoleAsync(user, "Clients");
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
