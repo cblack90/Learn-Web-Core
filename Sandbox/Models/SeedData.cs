@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Sandbox.Models
 {
-    public static class SeedData
+    public class SeedData
     {
         public static async Task Initialize(IServiceProvider serviceProvider, string testUserPW)
         {

@@ -2,7 +2,7 @@
 
 namespace Sandbox.Migrations
 {
-    public partial class CreateIdentitySchemaRedo : Migration
+    public partial class EditIdentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
